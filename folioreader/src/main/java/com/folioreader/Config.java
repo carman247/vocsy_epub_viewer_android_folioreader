@@ -43,7 +43,7 @@ public class Config implements Parcelable {
     private int themeColor = DEFAULT_THEME_COLOR_INT;
     private int nightThemeColor = themeColor;
     private boolean showTts = true;
-    private boolean showTextSelection = true;
+    private boolean showTextSelection = false;
     private AllowedDirection allowedDirection = DEFAULT_ALLOWED_DIRECTION;
     private Direction direction = DEFAULT_DIRECTION;
     private boolean showRemainingIndicator = false;
@@ -136,7 +136,7 @@ public class Config implements Parcelable {
         allowedDirection = DEFAULT_ALLOWED_DIRECTION;
         direction = DEFAULT_DIRECTION;
         showRemainingIndicator = false;
-        showTextSelection = true;
+        showTextSelection = false;
     }
 
     @SuppressWarnings("unchecked")
@@ -161,7 +161,7 @@ public class Config implements Parcelable {
         themeColor = getValidColorInt(getJsonItem(obj, CONFIG_THEME_COLOR_INT, DEFAULT_THEME_COLOR_INT));
         nightThemeColor = getValidColorInt(getJsonItem(obj, CONFIG_NIGHT_THEME_COLOR_INT, DEFAULT_THEME_COLOR_INT));
         showTts = getJsonItem(obj, CONFIG_IS_TTS, true);
-        showTextSelection = getJsonItem(obj, CONFIG_TEXT_SELECTION, true);
+        showTextSelection = getJsonItem(obj, CONFIG_TEXT_SELECTION, false);
         allowedDirection = getAllowedDirectionFromString(
                 LOG_TAG,
                 getJsonItem(obj, CONFIG_ALLOWED_DIRECTION, DEFAULT_ALLOWED_DIRECTION.toString())
